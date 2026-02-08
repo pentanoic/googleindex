@@ -1346,6 +1346,7 @@ async function file(path) {
                 } else {
                     file_others(name, encoded_name, size, url, file_id, cookie_folder_id);
                 }
+								alert(mimeType);
             }
         })
         .catch(function(error) {
