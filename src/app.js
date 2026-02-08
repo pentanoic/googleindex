@@ -36,8 +36,8 @@ function isFileType(ext, type) {
 function getFileIcon(ext) {
     const extLower = ext?.toLowerCase?.() || '';
     const iconMap = {
-        'dwg': cad_icon,
-        'dxf': cad_icon,
+        //'dwg': cad_icon,
+        //'dxf': cad_icon,
         'pdf': pdf_icon,
     };
     // Kiểm tra nhóm trước
