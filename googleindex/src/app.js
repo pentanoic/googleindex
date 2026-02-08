@@ -1257,7 +1257,13 @@ async function fallback(id, type) {
                         file_video(name, encoded_name, size, poster, url, mimeType, file_id, cookie_folder_id);
                     } else if (mimeType.includes("audio") || audio.includes(fileExtension)) {
                         file_audio(name, encoded_name, size, url, file_id, cookie_folder_id);
-                    } else if (mimeType.includes("image") || image.includes(fileExtension)) {
+										} else if (
+											mimeType.startsWith("image/") &&
+											!mimeType.includes("dwg") &&
+											!mimeType.includes("dxf") ||
+											image.includes(fileExtension)
+										) {
+										//} else if (mimeType.includes("image") || image.includes(fileExtension)) {
                         file_image(name, encoded_name, size, url, file_id, cookie_folder_id);
                     } else if (mimeType.includes("pdf") || pdf.includes(fileExtension)) {
                         file_pdf(name, encoded_name, size, url, file_id, cookie_folder_id);
@@ -1335,7 +1341,13 @@ async function file(path) {
                     file_video(name, encoded_name, size, poster, url, mimeType, file_id, cookie_folder_id);
                 } else if (mimeType.includes("audio") || audio.includes(fileExtension)) {
                     file_audio(name, encoded_name, size, url, file_id, cookie_folder_id);
-                } else if (mimeType.includes("image") || image.includes(fileExtension)) {
+								} else if (
+									mimeType.startsWith("image/") &&
+									!mimeType.includes("dwg") &&
+									!mimeType.includes("dxf") ||
+									image.includes(fileExtension)
+								) {
+                //} else if (mimeType.includes("image") || image.includes(fileExtension)) {
                     file_image(name, encoded_name, size, url, file_id, cookie_folder_id);
                 } else if (mimeType.includes("pdf") || pdf.includes(fileExtension)) {
                     file_pdf(name, encoded_name, size, url, file_id, cookie_folder_id);
