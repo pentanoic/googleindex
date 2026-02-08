@@ -1934,8 +1934,8 @@ function file_dwg(name, encoded_name, size, url, file_id, cookie_folder_id) {
         }
         navigation += `<a href="${new_path}" class="breadcrumb-item">${part}</a>`;
     }
-		alert(new_path);
-    let viewerUrl = `https://sharecad.org/cadframe/load?url=${encodeURIComponent(url)}`;
+		const cleanUrl = window.location.origin + window.location.pathname;
+    let viewerUrl = `https://cad.stockage.workers.dev/?url=${encodeURIComponent(cleanUrl)}`;
     const content = `
     <div class="container text-center"><br>
       <nav aria-label="breadcrumb">
@@ -1943,22 +1943,17 @@ function file_dwg(name, encoded_name, size, url, file_id, cookie_folder_id) {
           ${navigation}
         </ol>
       </nav>
-
       <div class="card">
         <div class="card-body text-center">
           <div class="${UI.file_view_alert_class}" id="file_details" role="alert">
             ${name}<br>${size}<br>
-            <small>(Đang tải viewer CAD từ ShareCAD...)</small>
           </div>
-
           <div id="cad-viewer-container" style="width:100%; height:70vh; min-height:500px; border:1px solid #ccc; position:relative;">
             <div id="cad-loading" style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:#f8f9fa;">
               Đang tải file DWG...
             </div>
           </div>
         </div>
-
-        <!-- Giữ phần download như cũ -->
         <div class="card-body">
           <div class="input-group mb-4">
             <div class="input-group-prepend">
